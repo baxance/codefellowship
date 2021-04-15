@@ -13,17 +13,21 @@ import java.util.Collection;
 public class User implements UserDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY);
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
     String username;
     String password;
 
-
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
     public void setUsername(String username) {
         this.username = username;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -36,31 +40,27 @@ public class User implements UserDetails {
     }
 
     ////////////////////////////////////////
+
     @Override
     public String getUsername() {
         return username;
     }
-
     @Override
     public String getPassword() {
         return password;
     }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
-
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
     @Override
     public boolean isEnabled() {
         return true;
